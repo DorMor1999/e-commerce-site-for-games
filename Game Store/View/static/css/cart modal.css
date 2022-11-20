@@ -1,0 +1,21 @@
+.product-link-modal{
+    text-decoration: none;
+    text-align: left;
+}
+
+.profile-img-modal{
+    width: 80px;
+    height: 100px;
+}
+
+.box-img-modal{
+    width: 90px;
+}
+
+.quantity-box-modal{
+    text-align: center;
+}
+
+.price-box-modal{
+    text-align: center;
+}

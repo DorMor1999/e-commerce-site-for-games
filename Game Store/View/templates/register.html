@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <title>Game Store - Register</title>
+    <link rel="stylesheet" href="../static/css/register_styles.css">
+    {% include "common/header.html" %}
+
+    <div class="container-fluid wraper">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-10 bg-light rounded-4">
+          <main class="form-signin w-100 m-auto">
+            <form class="box" action="{{url_for('register')}}" method="post">
+              <h1>Game Store</h1>
+              <h3 class="h3 mb-3 fw-normal">Please Register</h3>
+              <div class="form-floating">
+                <input type="email" class="form-control email"  placeholder="name@example.com" name="email">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control password"  placeholder="Password" name="password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+              {% if msg == "You have successfully registered"%}
+                <div class="alert alert-success" role="alert">
+                    <span>{{msg}}</span>
+                </div>
+              {% elif "!" in msg %}
+                <div class="alert alert-danger" role="alert">
+                    <span>{{msg}}</span>
+                </div>
+              {% endif %}
+            </form>
+          </main>
+        </div>
+      </div>
+    </div>
+    {% include "common/footer.html" %}
+</body>
+</html>

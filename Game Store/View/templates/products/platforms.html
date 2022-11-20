@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <title>Game Store - Platforms</title>
+    <link rel="stylesheet" href="../../static/css/all_products_styles.css">
+    {% include "common/header.html" %}
+    <div class="container-fluid">
+        <div class="dropdown-center">
+            <div>
+                <h3 class="all-products-header">{{platform_name}} Platforms</h3>
+            </div>
+            <div class="sort-button">
+                <button class="btn btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    Sort
+                </button>
+                <ul class="dropdown-menu">
+                    {% if sort_option == "name": %}
+                        <li><a class="dropdown-item disabled" href="{{url_for('show_all_platforms',platform_name=platform_name.replace(' ', '_') , sort_option='name')}}">Name</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('show_all_platforms',platform_name=platform_name.replace(' ', '_') , sort_option='price')}}">Price</a></li>
+                    {% elif sort_option == "price": %}
+                        <li><a class="dropdown-item" href="{{url_for('show_all_platforms',platform_name=platform_name.replace(' ', '_') , sort_option='name')}}">Name</a></li>
+                        <li><a class="dropdown-item disabled" href="{{url_for('show_all_platforms',platform_name=platform_name.replace(' ', '_') , sort_option='price')}}">Price</a></li>
+                    {% else: %}
+                        <li><a class="dropdown-item" href="{{url_for('show_all_platforms',platform_name=platform_name.replace(' ', '_') , sort_option='name')}}">Name</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('show_all_platforms',platform_name=platform_name.replace(' ', '_') , sort_option='price')}}">Price</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        {% include "common/side bar.html" %}
+
+        <div class="row">
+            {% for product in platforms_list: %}
+            <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-12 div-of-card">
+                <a href="{{url_for('product_page', product_name=product.name.replace(' ', '_'))}}"
+                   class="link-product">
+                    <div class="card h-100">
+                        <img src="{{product.link_photo_profile}}" class="product-img" alt="">
+                        <div class="card-body product-name">
+                            <h5 class="card-title">{{product.name}}</h5>
+                        </div>
+                        <div class="card-body cart-button-and-price">
+                            <a href="{{url_for('cart_operations', product_name=product.name, operation='add')}}" class="card-link add-to-cart-button">
+                                <button type="button" class="btn btn-outline-success">ADD TO CART</button>
+                            </a>
+                            <h6 class="price">{{product.price}}$</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include "common/footer.html" %}
+</body>
+</html>

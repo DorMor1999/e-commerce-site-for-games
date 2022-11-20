@@ -1,0 +1,44 @@
+.navbar{
+    margin-bottom: 5%;
+}
+
+.icon-and-date{
+    margin-left: 10px;
+}
+
+.icons-facebook-twitter-instagram{
+    margin-right: 10px;
+}
+
+.sideBar{
+    display: inline;
+    float: left;
+}
+
+.profile-img{
+    width: 300px;
+    height: 400px;
+
+}
+
+.product-img-div{
+    display: flex;
+    justify-content: center;
+    margin-top: min(30px);
+}
+
+.firstRow{
+    margin-bottom: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.all-photos{
+    max-height: 600px;
+}
+
+
+
+
+
+
