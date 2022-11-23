@@ -1,14 +1,6 @@
 
 
-https://user-images.githubusercontent.com/89539078/203644958-d1ccf199-f49c-4a36-81c4-2d3d5e830872.mp4
-
-
-
-https://user-images.githubusercontent.com/89539078/203644997-7a044e50-f8af-400f-808b-73154a11f78b.mp4
-
-
-
-https://user-images.githubusercontent.com/89539078/203645025-22326668-5cdc-476d-823a-2d2c8cf5b813.mp4
+https://user-images.githubusercontent.com/89539078/203645131-7d46a7ae-17e4-41d7-9d77-c3ae6c50e049.mp4
 
 # e-commerce-site-for-games
 This project is a e-commerce site for games.
