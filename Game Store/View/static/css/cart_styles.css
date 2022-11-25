@@ -1,0 +1,54 @@
+.icon-and-date{
+    margin-left: 10px;
+}
+
+.navbar{
+    margin-bottom: 5%;
+}
+
+.product-link{
+    text-decoration: none;
+    text-align: left;
+}
+
+.icons-facebook-twitter-instagram{
+    margin-right: 10px;
+}
+
+.justify-content-center{
+    width: 100%;
+}
+
+.profile-img{
+    width: 110px;
+    height: 150px;
+}
+
+.box-img{
+    width: 120px;
+}
+
+.add-and-remove{
+    width: 31px;
+}
+
+.quantity-box{
+    text-align: center;
+    min-width: 110.6px;
+}
+
+.remove{
+    margin-top: 20px;
+}
+
+.price-box{
+    text-align: center;
+}
+
+.alert{
+    margin-top: 15px;
+}
+
+.link-sign-in{
+    text-decoration: none;
+}

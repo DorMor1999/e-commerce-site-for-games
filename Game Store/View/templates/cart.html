@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <title>Game Store - Cart</title>
+    {% include "common/header.html" %}
+    <link rel="stylesheet" href="../static/css/cart_styles.css">
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12">
+                    <h1>Cart</h1>
+                    <table class="table table-striped table-hover table-light fs-5 border border-3">
+                        <thead>
+                            <tr>
+                                <td class="bg-white" colspan="2">Item</td>
+                                <td class="bg-white quantity-box">Quantity</td>
+                                <td class="bg-white price-box">Price</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in office.order.cart: %}
+                                <tr>
+                                    <td class="box-img"><a href="{{url_for('product_page', product_name=item['product'].name.replace(' ', '_'))}}"><img class="profile-img" src="{{item['product'].link_photo_profile}}" alt="product_profile_img"></a></td>
+                                    <td><a class="product-link" href="{{url_for('product_page', product_name=item['product'].name.replace(' ', '_'))}}">{{item["product"].name}}</a></td>
+                                    <td class="quantity-box">
+                                        {% if item["quantity"] == 1 %}
+                                            <a class="disabled"><button type="button" class="btn btn-outline-primary btn-sm add-and-remove disabled">-</button></a> {{item["quantity"]}} <a href="{{url_for('cart_operations', product_name=item['product'].name, operation='+1')}}"><button type="button" class="btn btn-outline-primary btn-sm add-and-remove">+</button></a>
+                                        {% else %}
+                                            <a href="{{url_for('cart_operations', product_name=item['product'].name, operation='-1')}}"><button type="button" class="btn btn-outline-primary btn-sm add-and-remove">-</button></a> {{item["quantity"]}} <a href="{{url_for('cart_operations', product_name=item['product'].name, operation='+1')}}"><button type="button" class="btn btn-outline-primary btn-sm add-and-remove">+</button></a>
+                                        {% endif %}
+                                    </td>
+                                    <td class="price-box">{{item["price"]}}$<br><a href="{{url_for('cart_operations', product_name=item['product'].name, operation='remove')}}"><button type="button" class="btn btn-danger btn-lg remove">Remove</button></a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="bg-white" colspan="4">Total Price: {{office.order.total_price}}$</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    {% if office.the_user == None or office.order.total_items < 1: %}
+                        <a class="disabled">
+                            <button type="button" class="btn btn-success btn-lg disabled">To order</button>
+                        </a>
+                            {% if office.the_user == None: %}
+                            <div class="alert alert-danger" role="alert">
+                                <a class="link-sign-in" href="{{url_for('sign_in')}}">To order you must log in to your user account!</a>
+                            </div>
+                            {% endif %}
+                            {% if office.order.total_items < 1: %}
+                            <div class="alert alert-danger" role="alert">
+                                You must order at least one item!
+                            </div>
+                            {% endif %}
+                    {% else: %}
+                        <a href="{{url_for('order_form')}}">
+                            <button type="button" class="btn btn-success btn-lg">To order</button>
+                        </a>
+                    {% endif %}
+                </div>
+        </div>
+    </div>
+
+    {% include "common/footer.html" %}
+</body>
+</html>
